@@ -36,3 +36,9 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+
+
+### 部署
+hexo clean && hexo generate --deploy  
+
+或者 npm run deploy

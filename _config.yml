@@ -99,8 +99,12 @@ theme: archer
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: https://github.com/dengzhifeng/dengzhifeng.github.io # https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+# - type: git
+#   repo: https://github.com/dengzhifeng/dengzhifeng.github.io # https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+#   branch: [master]
+  #message: [message]
+- type: git
+  repo: git@134.175.6.239:/home/git/blog.git # https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: [master]
   #message: [message]
 
