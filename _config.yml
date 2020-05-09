@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: steven
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
+author: steven.deng
 language: en
 timezone: ''
 
@@ -93,9 +93,39 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: archer
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/dengzhifeng/dengzhifeng.github.io # https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  branch: [master]
+  #message: [message]
+
+jsonContent:
+  meta: true
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: true
+    link: false
+    permalink: true
+    excerpt: false
+    categories: true
+    tags: true
+
+
+# algolia:
+#   applicationID: 'NHIMSOK87M'
+#   apiKey: 'a0eb810b71f0f13513611df3eccc6365'
+#   indexName: 'blog'
+#   chunkSize: 5000
