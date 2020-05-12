@@ -8,12 +8,12 @@ subtitle: ''
 description: ''
 keywords:
 author: steven.deng
-language: en
+language: zh-CN
 timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://dengzhifeng.github.io  #腾讯云公网ip
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -41,7 +41,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
