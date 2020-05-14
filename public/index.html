@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
     <!-- title -->
 
 
@@ -22,15 +22,15 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="steven">
-<meta property="og:url" content="http://134.175.6.239/index.html">
+<meta property="og:url" content="https://dengzhifeng.github.io/index.html">
 <meta property="og:site_name" content="steven">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="steven.deng">
 <meta name="twitter:card" content="summary">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
-    <title>steven&#39;s blog</title>
+    <title>Steven&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -193,7 +193,7 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="icon" href= "/avatar/github.jpg" />
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
     <link rel="preload" href="/scripts/main.js" as="script" />
@@ -218,7 +218,7 @@
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
     
-    <a class="home-link" href=/>steven's Blog</a>
+    <a class="home-link" href=/>Steven's Blog</a>
 </header>
     <div class="wrapper">
         <div class="site-intro" style="
@@ -244,7 +244,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            steven's Blog
+            Steven's Blog
             <!-- 文章页  -->
             
         </h1>
@@ -253,7 +253,7 @@ height:50vh;
             <!-- 主页副标题  -->
             
             
-                让代码和诗一样优雅
+                让代码像诗一样优雅
             
             <!-- 文章页  -->
             
@@ -367,13 +367,16 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2020/05/09/four/" >
+        <a class="abstract-title" href = "/2020/05/09/2020-05-11-vuex/" >
             
-                <span>four</span>
+                <span>vuex框架原理和源码研究分析</span>
         </a>
         <div class="abstract-content">
-            four arsss1111
+            大家一直使用vuex, 但是大多数很少了解到vuex的背后原理，我也很好奇它的背后原理，故上网看博客了解和下载Vuex源码研究分析。
+vuex是管理页面数据状态的统一数据操作生态系统。修改数据要通过action mutation state change 的流程才能修改，保证数据的修改可控和方便排查数据流向。state变化后，vue根据双向数据绑定实现页面展示。
+一、框架核心流程vuex框架流程图：如图：vue Compontents的数据变化依赖了vuex的完整生态。
 
+Vue Components：Vue组件。HTML页面上，负责接收用户操作等交互行为，执行dispatch方法触发对...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -382,56 +385,9 @@ height:50vh;
             </div>
             <!-- tags  -->
             
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/05/08/Hello-Hexo/" >
-            
-                <span>Hello Hexo</span>
-        </a>
-        <div class="abstract-content">
-            111
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/05/08</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/05/07/My-New-Post/" >
-            
-                <span>My New Post</span>
-        </a>
-        <div class="abstract-content">
-            test my blog
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/05/07</span>
-            </div>
-            <!-- tags  -->
-            
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "111">111</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "vue vuex 源码分析">vue vuex 源码分析</a>
     
 </div>
             
@@ -444,18 +400,14 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2020/05/07/hello-world/" >
+        <a class="abstract-title" href = "/2020/05/07/2020-05-07-git-ssh/" >
             
-                <span>Hello World</span>
+                <span>Git（ssh连接）多用户配置</span>
         </a>
         <div class="abstract-content">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-
-More info: Writing
-Run server1$ hexo server
-
-Mo...
+            在Git使用中经常会碰到多用户问题，例如：你在公司里有一个gitlab账户，自己有个github账户，但是都是希望ssh分别连接对应账号仓库。也就是说同一台电脑上同时对这两个git账户进行操作，此时就需要进行git多用户配置。
+一、git生成key首先生成一个ssh key  生成后有id_rsa 和 id_rsa.pub一个key其实可以供多个git连接的，故我只生产一个key。
+12345678#切换到.ssh目录cd ~/.ssh  #使用自己的企业邮箱产生SSH KEYssh-keygen -t rsa -C "mywork@email.com"  #企业的可以使用id_rsa，...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -463,6 +415,12 @@ Mo...
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/05/07</span>
             </div>
             <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "git">git</a>
+    
+</div>
             
         </div>
     </article>
@@ -473,7 +431,7 @@ Mo...
             <!-- profile -->
             
             <div class="profile">
-    <img class="profile-avatar" alt="avatar" src= /avatar/Misaka.jpg >
+    <img class="profile-avatar" alt="avatar" src= /avatar/github.jpg >
     <div class="profile-name">steven.deng</div>
     
     <div class="profile-signature">
@@ -539,24 +497,12 @@ Mo...
             
                 
                     <span>
-                        <a href= //www.baidu.com target="_black">friendA</a>
+                        <a href= //blog.csdn.net/qq398577351 target="_black">CSDN</a>
                     </span>
-                
-            
-                
-                    <span>
-                        <a href= //www.google.com target="_black">friendB</a>
-                    </span>
-                
-            
                 
             
         </div>
     
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
     
 </div>
             
@@ -618,7 +564,7 @@ Mo...
     
     <!-- powered by Hexo  -->
     <div class="copyright">
-        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+        <span id="hexo-power">Powered by <a href="https://github.com/dengzhifeng" target="_blank">steven.deng</a></span>
     </div>
     <!-- 不蒜子  -->
     
@@ -634,11 +580,18 @@ Mo...
     <!-- toc -->
     
     <div class="back-top iconfont-archer">&#xe639;</div>
-    <div class="sidebar sidebar-hide">
+    <!--
+ * @description: 
+ * @author: steve.deng
+ * @Date: 2020-05-08 17:23:56
+ * @LastEditors: steve.deng
+ * @LastEditTime: 2020-05-11 18:27:59
+ -->
+<div class="sidebar sidebar-hide">
     <ul class="sidebar-tabs sidebar-tabs-active-0">
-        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
-        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
-        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">归档</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">标签</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">分类</span></li>
     </ul>
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
@@ -661,29 +614,9 @@ Mo...
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 4
+        Total : 2
         </div>
         <!-- search  -->
         
@@ -694,36 +627,17 @@ Mo...
     
     
     
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2020/05/07/hello-world/" >Hello World</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2020/05/09/four/" >four</a>
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/2020/05/09/2020-05-11-vuex/" >vuex框架原理和源码研究分析</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/08</span><a class="archive-post-title" href= "/2020/05/08/Hello-Hexo/" >Hello Hexo</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/07</span><a class="archive-post-title" href= "/2020/05/07/My-New-Post/" >My New Post</a>
+            <span class="archive-post-date">05/07</span><a class="archive-post-title" href= "/2020/05/07/2020-05-07-git-ssh/" >Git（ssh连接）多用户配置</a>
         </li>
     
     </div>
@@ -731,7 +645,9 @@ Mo...
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="111"><span class="iconfont-archer">&#xe606;</span>111</span>
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+    
+        <span class="sidebar-tag-name" data-tags="vue vuex 源码分析"><span class="iconfont-archer">&#xe606;</span>vue vuex 源码分析</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -765,6 +681,10 @@ jsonContent:
 </div>
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="技术文章"><span class="iconfont-archer">&#xe60a;</span>技术文章</span>
+    
+        <span class="sidebar-category-name" data-categories="干货教程"><span class="iconfont-archer">&#xe60a;</span>干货教程</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
