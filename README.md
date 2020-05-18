@@ -1,10 +1,4 @@
-<!--
- * @description: 
- * @author: steve.deng
- * @Date: 2020-05-10 22:54:02
- * @LastEditors: steve.deng
- * @LastEditTime: 2020-05-12 11:46:35
- -->
+
 ## 快速开始
 ### 安装主题
 1. 在Hexo目录下执行
