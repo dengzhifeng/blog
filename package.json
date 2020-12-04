@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
+    "build:mysite": "npm run replace:mysite && hexo generate",
+    "build": "npm run replace:git && hexo generate",
     "clean": "hexo clean",
     "deploy": "npm run clean && npm run build && hexo deploy",
-    "server": "hexo server"
+    "server": "hexo server",
+    "replace:git": "node replace.js --file _config.yml --newfile _config_github.yml auto-replace-file",
+    "replace:mysite": "node replace.js --file _config.yml --newfile _config_mysite.yml auto-replace-file"
   },
   "hexo": {
     "version": "4.2.0"
