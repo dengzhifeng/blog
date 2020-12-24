@@ -1,23 +1,43 @@
+<!--
+ * @description: 
+ * @author: steve.deng
+ * @Date: 2020-12-04 11:13:58
+ * @LastEditors: steve.deng
+ * @LastEditTime: 2020-12-24 11:17:40
+-->
 <footer class="footer footer-unloaded">
-    <!-- social  -->
-    <% if(theme.social) { %>
-    <div class="social">
-        <%- partial('base-social') %>
+  <!-- social  -->
+  <% if(theme.social) { %>
+  <div class="social"><%- partial('base-social') %></div>
+  <% } %>
+  <!-- powered by Hexo  -->
+  <div class="copyright">
+    <span id="hexo-power"
+      >Powered by
+      <a href="https://github.com/dengzhifeng" target="_blank"
+        >steven.deng</a
+      ></span
+    >
+    <div>
+      Copyright © <%- new Date().getFullYear()%> steven.deng All rights
+      reserved. | 粤ICP备2020136046号
     </div>
-    <% } %>
-    <!-- powered by Hexo  -->
-    <div class="copyright">
-        <span id="hexo-power">Powered by <a href="https://github.com/dengzhifeng" target="_blank">steven.deng</a></span>
-    </div>
-    <!-- 不蒜子  -->
-    <% if (theme.busuanzi) { %>
-    <div class="busuanzi-container">
-    <% var sloganPieces = theme.busuanzi_slug.split('${count}') %>
-    <% if(theme.busuanzi_pv_or_uv === 'pv') { %> 
-    <span id="busuanzi_container_site_pv"><%- sloganPieces[0] %><span id="busuanzi_value_site_pv"></span><%- sloganPieces[1] %></span>
+  </div>
+  <!-- 不蒜子  -->
+  <% if (theme.busuanzi) { %>
+  <div class="busuanzi-container">
+    <% var sloganPieces = theme.busuanzi_slug.split('${count}') %> <%
+    if(theme.busuanzi_pv_or_uv === 'pv') { %>
+    <span id="busuanzi_container_site_pv"
+      ><%- sloganPieces[0] %><span id="busuanzi_value_site_pv"></span><%-
+      sloganPieces[1] %></span
+    >
     <% } else if (theme.busuanzi_pv_or_uv === 'uv') { %>
-    <span id="busuanzi_container_site_uv"><%- sloganPieces[0] %><span id="busuanzi_value_site_uv"></span><%- sloganPieces[1] %></span>
+    <span id="busuanzi_container_site_uv"
+      ><%- sloganPieces[0] %><span id="busuanzi_value_site_uv"></span><%-
+      sloganPieces[1] %></span
+    >
     <% } %>
-    </div>
-    <% } %>
+  </div>
+  <% } %>
 </footer>
