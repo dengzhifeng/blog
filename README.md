@@ -83,4 +83,4 @@ More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
 ```
 
 提交代码自动构建
-master 分支自动触发 其他不触发 12
+master 分支自动触发 其他不触发 1
