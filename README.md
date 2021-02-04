@@ -81,3 +81,5 @@ $ build:mysite 打包 手动放到服务器位置 /home/blog (有空搞搞自动
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
 ```
+
+提交代码自动构建
