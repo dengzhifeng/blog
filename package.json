@@ -8,9 +8,11 @@
     "clean": "hexo clean",
     "deploy": "npm run clean && npm run build && hexo deploy",
     "server": "hexo server",
-    "replace:git": "node replace.js --file _config.yml --newfile _config_github.yml auto-replace-file",
-    "replace:mysite": "node replace.js --file _config.yml --newfile _config_mysite.yml auto-replace-file",
-    "push": "command-cli push"
+    "push": "command-cli push",
+    "replace:git": "command-cli replace-file --oldFile _config.yml --newFile _config_github.yml ",
+    "replace:mysite": "command-cli replace-file --oldFile _config.yml --newFile _config_mysite.yml ",
+    "merge-branch": "command-cli merge-branch --targetBranch dev  --mainBranch master",
+    "push-merge": "command-cli push-merge --targetBranch dev  --mainBranch master"
   },
   "hexo": {
     "version": "4.2.0"
