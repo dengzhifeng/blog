@@ -1,8 +1,8 @@
 ---
-title: 关于前端学习路线的一些建议
+title: vue-ssr服务端渲染
 date: 2020-05-14 18:34:22
 tags: 前端学习路径
-categories: 干货教程
+categories: vue
 ---
 
 入题
