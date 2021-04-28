@@ -1,10 +1,3 @@
-/*
- * @description:
- * @author: steve.deng
- * @Date: 2021-04-28 09:44:06
- * @LastEditors: steve.deng
- * @LastEditTime: 2021-04-28 09:44:25
- */
 #!/usr/bin/env node
 
 /**
