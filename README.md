@@ -1,139 +1,89 @@
-### 1、虚拟列表 核心原理就是 比如有 100 条数据 如果全部渲染出来，那么 dom 结构里面对应有 100 个对应的 dom，比如 1000 10000 的时候，就会开始影响页面性能，那么就要实现虚拟列表， dom 结构里面永远只渲染 10 条 或者 页面可展示的条数，那么性能就会大大提升！
+## 快速开始
 
-### 2、实现原理
+### 安装主题
 
-```javascript
-function Home(props: Props) {
-  let lessonListRef = useRef(null);
-  useEffect(() => {
-    lessonListRef.current();
-    //重新渲染组件
-    homeContainerRef.current.addEventListener(
-      "scroll",
-      throttle(lessonListRef.current, 16)
-    );
-  }, []); //依赖数组为空表示此effect回调只会执行一次
-  return (
-    <>
-      <div className="home-container" ref={homeContainerRef}>
-        <LessonList
-          lessons={props.lessons}
-          getLessons={props.getLessons}
-          ref={lessonListRef}
-          homeContainerRef={homeContainerRef}
-        />
-      </div>
-    </>
-  );
-}
+1. 在 Hexo 目录下执行
+   git clone https://github.com/fi3ework/hexo-theme-archer.git themes/archer --depth=1
+
+2. 修改 Hexo 目录下的 \_config.yml 的 theme 字段为 archer
+3. 添加 sidebar 启用支持：
+   在 Hexo 目录下的 \_config.yml 中添加以下字段（不是 archer 下的 \_config.yml）
+
+```
+jsonContent:
+  meta: true
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: true
+    excerpt: false
+    categories: true
+    tags: true
+
 ```
 
-- 2.1 先定义 ref ： lessonListRef 传入给 LessonList 组件，外层容器 homeContainerRef 绑定 scroll 事件，那么容器滚动的时候，就会执行 lessonListRef.current 方法。
+### 创建一个博客
 
-- 2.2 `let [,forceUpdate] = React.useReducer(x=>x+1,0);` 只是为了定义一个强制刷新的函数 forceUpdate 然后赋值给 forwardedRef.current = forceUpdate;
-- 2.3 remSize 就是 1rem 代表多少 px 比如 37.5
-- 2.4 itemSize 就是计算当前每个 item 高度是多少 px 比如原来是 650px 的设计图高度 650 /75 就是 rem rem\*remSize 就是实际高度
-- 2.5 screenHeight 显示内容的高度
-- 2.6 scrollTop 父容器滚动的距离
-- 2.7 start = Math.floor(scrollTop/itemSize); start 索引就是展示的起始索引 因为卷去的高度/item 高度 就是代表滚到第几个
-- 2.8 end = start + Math.floor(screenHeight/itemSize); screenHeight/itemSize 就是屏幕最多展示的个数 开始+展示个数 就是 end
-- 2.9 为了滚动时 前后都看到有数据 start 做减法-2 end 做加法 + 2， 前后分别都加 2 个数据看到
-- 3.0 visibleList 就是展示的 list, 通过 start end 动态截取原始数据展示出来即可
-- 3.1 关键是每个 item 都是绝对定位通过 top 改变他的位置 top 就是 index\*itemSize
-- 3.2 因为一开始就调用监听 scroll 调用 forceUpdate 所以每次滚动都会修改 start end 值 改变数据， 并且改变每个 item top 的值
-
-```javascript
-function LessonList(props: PropsWithChildren<Props>, forwardedRef: any) {
-  //只是为了让我们得到一个强行刷新函数组件的方法
-  let [, forceUpdate] = React.useReducer((x) => x + 1, 0);
-  useEffect(() => {
-    if (props.lessons.list.length === 0) {
-      props.getLessons();
-    }
-    forwardedRef.current = forceUpdate;
-  }, []);
-  let remSize = parseFloat(document.documentElement.style.fontSize); //750px=>75px 375px=>37.5px
-  const itemSize = (650 / 75) * remSize; //每个条目实际的高度
-  //window.innerHeight=屏幕的高度=100vh -实际际的头和尾的高度  750px header 100px tab=121px=221
-  const screenHeight = window.innerHeight - (221 / 75) * remSize; //显示内容的容器的高度
-  const homeContainer = props.homeContainerRef.current; //DOM元素
-  let start = 0,
-    end = 0;
-  if (homeContainer) {
-    const scrollTop = homeContainer.scrollTop; //父容器向上卷去的高度
-    start = Math.floor(scrollTop / itemSize);
-    end = start + Math.floor(screenHeight / itemSize);
-    (start -= 2), (end += 2); //右闭右开的区间
-    start = start < 0 ? 0 : start; //小于0取0
-    end = end > props.lessons.list.length ? props.lessons.list.length : end; // 如果大于最后一个，取最大值
-  }
-  //可视条目的列表
-  const visibleList: VisibleLesson[] = props.lessons.list
-    .map((item: Lesson, index: number) => ({
-      ...item,
-      index,
-    }))
-    .slice(start, end);
-  const basicStyle: React.CSSProperties = {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: itemSize,
-  };
-  return (
-    <section className="lesson-list">
-      <h2>
-        <MenuOutlined />
-        全部课程
-      </h2>
-      <div
-        style={{
-          position: "relative",
-          width: "100%",
-          height: `${props.lessons.list.length * itemSize}px`,
-        }}
-      >
-        {visibleList.map((lesson: VisibleLesson, index: number) => (
-          <Link
-            key={lesson.id}
-            to={{ pathname: `/detail/${lesson.id}`, state: lesson }}
-            style={{ ...basicStyle, top: `${lesson.index * itemSize}px` }}
-          >
-            <Card
-              hoverable={true}
-              style={{ width: "100%" }}
-              cover={<img alt={lesson.title} src={lesson.poster} />}
-            >
-              <Card.Meta
-                title={lesson.title}
-                description={`价格:${lesson.price}元`}
-              />
-            </Card>
-          </Link>
-        ))}
-      </div>
-      {props.lessons.hasMore ? (
-        <Button
-          onClick={props.getLessons}
-          loading={props.lessons.loading}
-          type="primary"
-          block
-        >
-          {props.lessons.loading ? "" : "加载更多"}
-        </Button>
-      ) : (
-        <Alert
-          style={{ textAlign: "center" }}
-          message="到底了"
-          type="warning"
-        />
-      )}
-    </section>
-  );
-}
-
-export default React.forwardRef(LessonList);
+```bash
+$ hexo new "My New Post"
 ```
 
-总结：滚动事件监听，计算每个 item 高度， 计算滚动的距离， 计算 start end ，做数据截取，展示截取后的数据， 同时做样式绝对定位就可以 （top 值就可以改变处于的高度）
+More info: [Writing](https://hexo.io/docs/writing.html)
+
+### 启动服务器
+
+```bash
+$ hexo server
+或者
+$ npm run server
+```
+
+More info: [Server](https://hexo.io/docs/server.html)
+
+### 生成要部署的静态文件
+
+```bash
+$ hexo generate
+或者
+npm run build
+```
+
+More info: [Generating](https://hexo.io/docs/generating.html)
+
+### 部署到 github 站点
+
+直接部署到 github page
+
+```
+$ hexo clean && hexo generate --deploy
+```
+
+或者
+
+```
+$ npm run deploy
+
+```
+
+```
+
+More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+```
+
+### 部署到个人站点
+
+```
+$ npm run build:mysite 打包手动放到服务器位置 /home/blog
+```
+
+`推荐`部署方式
+或者提交代码到 master 会触发 git-hook 自动构建 jenkisn 构建 完美！
