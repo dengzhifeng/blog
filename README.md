@@ -85,5 +85,5 @@ More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
 $ npm run build:mysite 打包手动放到服务器位置 /home/blog
 ```
 
-`推荐`部署方式
+`推荐` 部署方式
 或者提交代码到 master 会触发 git-hook 自动构建 jenkisn 构建 完美！
