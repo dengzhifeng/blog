@@ -72,15 +72,18 @@ $ hexo clean && hexo generate --deploy
 ```
 $ npm run deploy
 
-### 部署到个人站点
 ```
-
-$ build:mysite 打包 手动放到服务器位置 /home/blog (有空搞搞自动化部署)
 
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
 ```
 
-提交代码自动构建
-master 分支自动触发 其他不触发 1
+### 部署到个人站点
+
+```
+$ npm run build:mysite 打包手动放到服务器位置 /home/blog
+```
+
+`推荐` 部署方式
+或者提交代码到 master 会触发 git-hook 自动构建 jenkisn 构建 完美！
